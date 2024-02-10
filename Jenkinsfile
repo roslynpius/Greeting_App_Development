@@ -9,7 +9,7 @@ pipeline {
 	stage('SonarQube Analysis') {
             steps {
                 script {
-                    def mvn = tool 'maven';
+                    def mvn = tool 'Maven';
                     withSonarQubeEnv('sonarqube') {
                         sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=greetapp_pipeline -f pom.xml"
                     }
@@ -33,7 +33,7 @@ pipeline {
         stage('Test') {
 		    steps {
 			    script {
-				      def mvn = tool 'maven';
+				      def mvn = tool 'Maven';
                                       sh "${mvn}/bin/mvn -Dmaven.test.failure.ignore=true test"
                       }
                  }
@@ -41,7 +41,7 @@ pipeline {
 		stage('Result') {
 		    steps {
 			    script {
-				      def mvn = tool 'maven';
+				      def mvn = tool 'Maven';
                                       junit(testResults: 'target/surefire-reports/*.xml', skipMarkingBuildUnstable: true, allowEmptyResults : true)
                       }
                  }

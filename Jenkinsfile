@@ -2,7 +2,7 @@ pipeline {
     agent { label 'Jenkins-Slave' }
 
     tools {
-        maven "maven"
+        maven "Maven"
     }
 
     stages {

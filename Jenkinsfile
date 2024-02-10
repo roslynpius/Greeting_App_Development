@@ -6,12 +6,7 @@ pipeline {
     }
 
     stages {
-	stage('Prep'){
-		steps{
-		 git 'https://github.com/roslynpius/Greeting_App_Development.git'
-			}
-		}
-        stage('SonarQube Analysis') {
+	stage('SonarQube Analysis') {
             steps {
                 script {
                     def mvn = tool 'maven';

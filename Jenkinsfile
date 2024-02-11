@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     def mvn = tool 'Maven';
-                    withSonarQubeEnv('sonarqube') {
+                    withSonarQubeEnv('sq-server-1') {
                         sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=greetapp_pipeline -f pom.xml"
                     }
                 }

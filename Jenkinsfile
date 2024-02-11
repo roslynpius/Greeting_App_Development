@@ -50,7 +50,7 @@ pipeline {
                  steps {
                        script {
  
-                             sh 'rsync -avz $WORKSPACE/target/GreetingApp-0.0.1-SNAPSHOT.jar jenkins@10.0.1.128:/tmp/'
+                             sh 'rsync -avz $WORKSPACE/target/GreetingApp-0.0.1-SNAPSHOT.jar jenkins@10.0.2.58:/tmp/'
                              sh 'ssh jenkins@10.0.2.58 "sudo -u greetings /usr/local/bin/deploy_greeting.sh"'
                               }
                         }
